@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <style>
+        #kitapListesi td{ padding: 10px 15px ; border: 1px solid red}
+    </style>
+
+    <script>
+
+        var kitap = {
+            "kitapadi" : "Türklerin Tarihi",
+            "yazar" : "İlber Ortaylı",
+            "fiyat" : 20.50,
+            "baskı" : 12
+        };
+
+        var jsonVeri = JSON.stringify(kitap);
+        var parseVeri = JSON.parse(jsonVeri);
+
+        alert(parseVeri.kitapadi);
+
+
+        $(document).ready(function () {
+            var kitaplar =[
+                {
+                    "kitapadi" : "Türklerin Tarihi",
+                    "yazar" : "İlber Ortaylı",
+                    "fiyat" : 20.50,
+                    "baskı" : 12
+                },
+                {
+                    "kitapadi" : "Gün Olur Asra Beden",
+                    "yazar" : "Cengiz Aytmatov",
+                    "fiyat" : 18.99,
+                    "baskı" : 25
+                },
+                {
+                    "kitapadi" : "Simyacı",
+                    "yazar" : "Paulo Coelho",
+                    "fiyat" : 12.75,
+                    "baskı" : 15
+                }
+            ]
+
+            var jsonVeri2 = JSON.stringify(kitaplar);
+            var parseVeri2 = JSON.parse(jsonVeri2);
+
+            //alert(parseVeri2[2].kitapadi);
+
+            for (var i=0; i<parseVeri2.length ; i++){
+                var satir = "<tr>";
+                satir+="<td>" + parseVeri2[i].kitapadi + "</td>";
+                satir+="<td>" + parseVeri2[i].yazar + "</td>";
+                satir+="<td>" + parseVeri2[i].fiyat + "</td>";
+                satir+="<td>" + parseVeri2[i].baskı + "</td>";
+
+                $("#kitapListesi").append(satir);
+            }
+
+        })
+
+    </script>
+
+</head>
+<body>
+<table id="kitapListesi">
+    <tr>
+        <td>Kitap Adı</td>
+        <td>Yazar</td>
+        <td>Fiyat</td>
+        <td>Baskı</td>
+    </tr>
+</table>
+</body>
+</html>
